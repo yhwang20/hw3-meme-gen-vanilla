@@ -3,13 +3,21 @@ import { useState } from "react";
 import Search from "./Search";
 function Control(props) {
 
-    const {produce, topText} = props;
-
+    const {produce} = props;
+    const [topText, setTopText] = useState("")
+    const [bottomText, setBottomText] = useState("")
     const handleClick = () => {
-        produce();
+        const texts = [topText, bottomText];
+        produce(texts);
     }
 
+    const handleOnChange = async (text) => {
+        setTopText(text);
+    }
 
+    const handleOnChangeBot = async (text) => {
+        setBottomText(text);
+    }
 
     
     return (
@@ -17,6 +25,10 @@ function Control(props) {
             <div className="field has-addons">
                 <div className="control is-expanded">
                     <Search 
+                        topText = {topText}
+                        handleOnChange = {handleOnChange}
+                        bottomText = {bottomText}
+                        handleOnChangeBot = {handleOnChangeBot}
                     />
                 </div>
             </div>

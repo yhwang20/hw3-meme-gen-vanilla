@@ -1,5 +1,5 @@
 function Output(props) {
-    const {image, topText} = props;
+    const {image, topText, bottomText} = props;
     return(
         
 
@@ -11,7 +11,9 @@ function Output(props) {
                         <h2 id="top-text" className="top">
                             {topText}
                         </h2>
-                        <h2 id="bottom-text" className="bottom"></h2>
+                        <h2 id="bottom-text" className="bottom">
+                            {bottomText}
+                        </h2>
                     </div>
                 </div>
             </article>

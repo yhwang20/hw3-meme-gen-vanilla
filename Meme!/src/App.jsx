@@ -13,7 +13,7 @@ function App() {
   const [image, setImage] = useState(""); //for Output
 
 
-  const produce = async () => {
+  const produce = async (texts) => {
     try {
       const data = await fetchMemes();
       const images = await generateMeme(data.data.memes);
@@ -21,7 +21,8 @@ function App() {
         setImage(images.url);
       }
       console.log();
-      setTopText();
+      setTopText(texts[0])
+      setBottomText(texts[1])
     } catch (err){
       console.log(err);
     }
@@ -34,13 +35,14 @@ function App() {
 
       <Control 
         produce = {produce}
-        topText = {topText}
-        setTopText = {setTopText}
+        //topText = {topText}
+        //setTopText = {setTopText}
       /> 
 
       <Output 
         image = {image}
         topText = {topText}
+        bottomText = {bottomText}
       />
 
       <Footer />  
